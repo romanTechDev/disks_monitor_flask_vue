@@ -21,20 +21,22 @@ Vue.component('umount_disk', {
 `
 })
 
-let all_input_disks_names =  document.getElementsById("input_disks_names").value;
-let all_input_disks_types =  document.getElementsById("input_disks_sizes").value;
-let all_input_disks_sizes =  document.getElementsById("input_disks_types").value;
-let all_input_disks_mountpoints =  document.getElementsById("input_disks_mountpoints").value;
-let all_input_disks_priorities =  document.getElementsById("input_disks_priorities").value;
-
+let all_input_disks_names =  document.getElementById("input_disks_names").value;
+let all_input_disks_types =  document.getElementById("input_disks_sizes").value;
+let all_input_disks_sizes =  document.getElementById("input_disks_types").value;
+let all_input_disks_mountpoints =  document.getElementById("input_disks_mountpoints").value;
+let all_input_disks_priorities =  document.getElementById("input_disks_priorities").value;
 
 
 let id=0;
-let disks_names = ['sda','sdb','sdc','sdd'];
-let disks_sizes = ['20gb','1gb','50gb','100gb'];
-let disks_mountpoints = ['/','','/home/desktop',''];
-let disks_types = ['disk','part','disk','disk'];
-let disks_priority = ['system','system','common','common'];
+let disks_names = all_input_disks_names.split(' ')//['sda','sdb','sdc','sdd'];
+let disks_sizes = all_input_disks_names.split(' ')//['20gb','1gb','50gb','100gb'];
+let disks_mountpoints = all_input_disks_names.split(' ')//['/','','/home/desktop',''];
+let disks_types = all_input_disks_names.split(' ')//['disk','part','disk','disk'];
+let disks_priority = all_input_disks_names.split(' ')//['system','system','common','common'];
+
+
+
 
 var app = new Vue({
 	el:'#app',
@@ -66,9 +68,6 @@ methods: {
 			if (disks_types[index] === 'disk' && disks_mountpoints[index] === '') {
 				this.isUmountDisk = true
 			}
+		}
 	}
-}
-
 });
-//<mount_disk v-if="array_disks.priority[index] === 'common' && array_disks.mountpoint[index] !== ''" ></mount_disk>
-//<umount_disk v-else-if="array_disks.type[index] === 'disk' && array_disks.mountpoint[index] === ''"></umount_disk>
