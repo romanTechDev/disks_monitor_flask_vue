@@ -74,17 +74,14 @@ def workspace():
             if request.form['format_disk']:
                 format_disk()
                 return redirect('workspace.html')
-            else:
-                flash('Неккоректные данные !', category='error')
-                return render_template('authentication.html')
 
         except Exception:
             return render_template('workspace.html')
 
-
-
     else:
-        return render_template('workspace.html')
+        return render_template('workspace.html', all_disks_name_array=all_disks_name_array, all_disks_size_array=all_disks_size_array,
+                               all_disks_mountpoint_array=all_disks_mountpoint_array,all_disks_type_array=all_disks_type_array,
+                               all_disks_priority_array=all_disks_priority_array)
 
 
 if __name__ == '__server__':
