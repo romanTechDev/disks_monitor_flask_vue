@@ -23,11 +23,11 @@
             </tr>
           </thead>
           <tbody>
-          <input type="hidden" id="input_disks_names" value="{{all_disks_size_array}}">
-          <input type="hidden" id="input_disks_sizes" value="{{all_disks_size_array}}">
-          <input type="hidden" id="input_disks_types" value="{{all_disks_type_array}}">
-          <input type="hidden" id="input_disks_mounpoints" value="{{all_disks_mountpoint_array}}">
-          <input type="hidden" id="input_disks_priorities" value="{{all_disks_priority_array}}">
+          <input type="hidden" name="input_disks_names" value="{{all_disks_name_array}}">
+          <input type="hidden" name="input_disks_sizes" value="{{all_disks_size_array}}">
+          <input type="hidden" name="input_disks_types" value="{{all_disks_type_array}}">
+          <input type="hidden" name="input_disks_mounpoints" value="{{all_disks_mountpoint_array}}">
+          <input type="hidden" name="input_disks_priorities" value="{{all_disks_priority_array}}">
           <form enctype="multipart/form-data" method="post">
               <tr v-for="(element, index) in array_disks.name">
                   <td> {{ array_disks.name[index] }} </td>
@@ -40,7 +40,7 @@
 
                  <mount_disk v-if="isMountDisk"  ></mount_disk>
                  <umount_disk v-if="isUmountDisk"  ></umount_disk>
-                     
+
                  </template>
               </tr>
           </form>
