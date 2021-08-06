@@ -43,7 +43,7 @@ def authentication():
         return render_template('authentication.html')
 
 
-def mount_disk(disk_name,mountpoint):
+def mount_disk(disk_name, mountpoint):
     mount_cmd = f'sudo mount -v {disk_name} {mountpoint}'
     subprocess.run(mount_cmd, shell=True, stdout=subprocess.PIPE, encoding='utf-8')
     pass
@@ -61,27 +61,35 @@ def format_disk(mountpoint):
     pass
 
 
+def return_workspace_template():
+    return render_template('workspace.html', all_disks_name_array=all_disks_name_array,
+                           all_disks_size_array=all_disks_size_array,
+                           all_disks_mountpoint_array=all_disks_mountpoint_array,
+                           all_disks_type_array=all_disks_type_array,
+                           all_disks_priority_array=all_disks_priority_array)
+
+
 @app.route('/workspace.html', methods=['POST', 'GET'])
 def workspace():
     if request.method == "POST":
         try:
             if request.form['umount_disk']:
                 umount_disk()
+                return_workspace_template()
 
             if request.form['mount_disk']:
                 mount_disk()
+                return_workspace_template()
 
             if request.form['format_disk']:
                 format_disk()
-                return redirect('workspace.html')
+                return_workspace_template()
 
         except Exception:
-            return render_template('workspace.html')
+            return_workspace_template()
 
     else:
-        return render_template('workspace.html', all_disks_name_array=all_disks_name_array, all_disks_size_array=all_disks_size_array,
-                               all_disks_mountpoint_array=all_disks_mountpoint_array,all_disks_type_array=all_disks_type_array,
-                               all_disks_priority_array=all_disks_priority_array)
+        return_workspace_template()
 
 
 if __name__ == '__server__':
