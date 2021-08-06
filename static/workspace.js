@@ -21,6 +21,14 @@ Vue.component('umount_disk', {
 `
 })
 
+let all_input_disks_names =  document.getElementsById("input_disks_names").value;
+let all_input_disks_types =  document.getElementsById("input_disks_sizes").value;
+let all_input_disks_sizes =  document.getElementsById("input_disks_types").value;
+let all_input_disks_mountpoints =  document.getElementsById("input_disks_mountpoints").value;
+let all_input_disks_priorities =  document.getElementsById("input_disks_priorities").value;
+
+
+
 let id=0;
 let disks_names = ['sda','sdb','sdc','sdd'];
 let disks_sizes = ['20gb','1gb','50gb','100gb'];
