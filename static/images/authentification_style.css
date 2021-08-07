@@ -1,0 +1,64 @@
+.auth_block{
+    height: 800px;
+    width: 700px;
+
+    border: 2px solid darkorange;
+
+    background-color: aliceblue;
+
+    margin-left: 900px;
+    margin-top: 250px;
+}
+
+h1{
+    padding-top: 30px;
+    font-size: 55px;
+    text-align: center;
+}
+
+.logo_image{
+    width: 260px;
+    height: 200px;
+    margin-top: 45px;
+    margin-left: 220px;
+}
+
+.inputs_block{
+    padding-top: 30px;
+    padding-left: 140px;
+    font-size: 30px;
+}
+
+
+.login_label{
+    padding-top: 35px;
+}
+
+.password_label{
+    padding-top: 50px;
+}
+
+.sign_button{
+    padding-top: 70px;
+    padding-left: 140px;
+    font-size: 38px;
+}
+
+.flash{
+    width:420px;
+}
+.flash.error{
+    padding-left: 45px;
+    background-color: lightcoral;
+}
+
+.flash.success{
+    padding-left: 100px;
+    background-color: darkseagreen;
+}
+
+body{
+    background-image: url("pink_sky.jpg");
+    background-position: center;
+    background-size: cover;
+}
